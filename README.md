@@ -33,12 +33,49 @@ picker.on('emojiClick', (emoji) => console.log(emoji.char)) // 😂
 
 ## Installation
 
+### npm / yarn / pnpm
+
 ```bash
 npm install @schwitzerskills/emojipicker
 # or
 yarn add @schwitzerskills/emojipicker
 # or
 pnpm add @schwitzerskills/emojipicker
+```
+
+### CDN (jsDelivr)
+
+No install needed — drop a single script tag into your HTML:
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/@schwitzerskills/emojipicker/emoji-picker.js"></script>
+```
+
+Full working example:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My App</title>
+</head>
+<body>
+
+  <input type="text" id="message" placeholder="Type a message...">
+  <button id="emoji-btn">😊</button>
+
+  <script src="https://cdn.jsdelivr.net/npm/@schwitzerskills/emojipicker/emoji-picker.js"></script>
+  <script>
+    const picker = new EmojiPicker({ container: '#emoji-btn' })
+    picker.on('emojiClick', (emoji) => {
+      document.querySelector('#message').value += emoji.char
+    })
+  </script>
+
+</body>
+</html>
 ```
 
 ---
@@ -50,13 +87,13 @@ The library ships as a **UMD build** and supports all environments out of the bo
 ### CommonJS (Node.js / bundlers)
 
 ```js
-const EmojiPicker = require('emojipicker-js')
+const EmojiPicker = require('@schwitzerskills/emojipicker')
 ```
 
 ### ES Module
 
 ```js
-import EmojiPicker from 'emojipicker-js'
+import EmojiPicker from '@schwitzerskills/emojipicker'
 ```
 
 ### Browser global (CDN / script tag)
@@ -71,7 +108,7 @@ import EmojiPicker from 'emojipicker-js'
 ### AMD (RequireJS)
 
 ```js
-define(['emojipicker-js'], function(EmojiPicker) {
+define(['@schwitzerskills/emojipicker'], function(EmojiPicker) {
   const picker = new EmojiPicker({ container: '#btn' })
 })
 ```
@@ -419,7 +456,7 @@ Works out of the box with a standard `import`. Initialize inside `useEffect` so 
 
 ```jsx
 import { useEffect, useRef } from 'react'
-import EmojiPicker from 'emojipicker-js'
+import EmojiPicker from '@schwitzerskills/emojipicker'
 
 function EmojiButton({ onSelect }) {
   const btnRef = useRef(null)
@@ -447,7 +484,7 @@ EmojiPicker uses `window` and `document` internally, so it must only run on the 
 ```jsx
 // components/EmojiButton.jsx
 import { useEffect, useRef } from 'react'
-import EmojiPicker from 'emojipicker-js'
+import EmojiPicker from '@schwitzerskills/emojipicker'
 
 export default function EmojiButton({ onSelect }) {
   const btnRef = useRef(null)
@@ -490,7 +527,7 @@ useEffect(() => {
 
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
-import EmojiPicker from 'emojipicker-js'
+import EmojiPicker from '@schwitzerskills/emojipicker'
 
 const emit = defineEmits(['select'])
 const btnRef = ref(null)
@@ -510,7 +547,7 @@ onUnmounted(() => picker?.destroy())
 ```svelte
 <script>
   import { onMount, onDestroy, createEventDispatcher } from 'svelte'
-  import EmojiPicker from 'emojipicker-js'
+  import EmojiPicker from '@schwitzerskills/emojipicker'
 
   const dispatch = createEventDispatcher()
   let btnEl
@@ -674,4 +711,5 @@ Requires `localStorage` for recent emojis — gracefully disabled if unavailable
 ---
 
 ## License
-Apache — free
+
+Apache
