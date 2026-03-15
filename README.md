@@ -2,6 +2,7 @@
 
 > A flexible, event-driven emoji picker library for the web.  
 > Zero dependencies. Full developer control. Framework agnostic.
+> https://pfurpass.github.io/EmojiPicker/
 
 ```js
 const picker = new EmojiPicker({ container: '#btn' })
