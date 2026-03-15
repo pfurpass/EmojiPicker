@@ -34,11 +34,11 @@ picker.on('emojiClick', (emoji) => console.log(emoji.char)) // 😂
 ## Installation
 
 ```bash
-npm install emojipicker-js
+npm install @schwitzerskills/emojipicker
 # or
-yarn add emojipicker-js
+yarn add @schwitzerskills/emojipicker
 # or
-pnpm add emojipicker-js
+pnpm add @schwitzerskills/emojipicker
 ```
 
 ---
